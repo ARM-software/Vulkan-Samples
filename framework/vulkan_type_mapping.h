@@ -83,6 +83,18 @@ struct HPPType<VkSampler>
 {
 	using Type = vk::Sampler;
 };
+
+template <>
+struct HPPType<VkPipeline>
+{
+	using Type = vk::Pipeline;
+};
+
+template <>
+struct HPPType<VkPipelineLayout>
+{
+	using Type = vk::PipelineLayout;
+};
 }        // namespace detail
 
 template <vkb::BindingType bindingType, typename T>
