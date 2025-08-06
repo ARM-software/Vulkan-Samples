@@ -500,7 +500,7 @@ Accesses to tensor resources must be synchronised correctly, just as for images 
 
 == Conclusion
 
-In this sample we've introduced the VK_ARM_tensors and VK_ARM_data_graph extensions and shown how to use them to run a simple neural network. We've shown the steps needed to run a neural network - creating a pipeline layout, data graph pipeline, data graph pipeline session, tensor objects, descriptor sets and finally recording binding and dispatch commands in a command buffer.
+In this sample we've introduced the VK_ARM_tensors and VK_ARM_data_graph extensions and shown how to use them to run a simple neural network. We've shown the steps needed to run a neural network - creating a pipeline layout, data graph pipeline, data graph pipeline session, tensor objects, descriptor sets and finally recording binding and dispatch commands in a command buffer. The follow up samples look at other aspects such as xref:..\graph_constants\README.adoc[graph constants].
 
 == Appendix A: SPIR-V programs for neural networks
 

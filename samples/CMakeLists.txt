@@ -93,6 +93,7 @@ set(ORDER_LIST
     "sparse_image"
     "dynamic_primitive_clipping"
     "simple_tensor_and_data_graph"
+    "graph_constants"
 
     #Performance Samples
     "swapchain_images"
@@ -131,16 +132,16 @@ set(ORDER_LIST
     "hpp_terrain_tessellation"
     "hpp_texture_loading"
     "hpp_texture_mipmap_generation"
-    
+
     #HPP Extension Samples
     "hpp_mesh_shading"
     "hpp_push_descriptors"
-    
+
     #HPP Performance Samples
     "hpp_pipeline_cache"
     "hpp_swapchain_images"
     "hpp_texture_compression_comparison"
-    
+
     #General Samples
     "mobile_nerf")
 
