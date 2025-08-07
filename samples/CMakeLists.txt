@@ -95,6 +95,7 @@ set(ORDER_LIST
     "simple_tensor_and_data_graph"
     "graph_constants"
     "compute_shaders_with_tensors"
+    "tensor_image_aliasing"
 
     #Performance Samples
     "swapchain_images"
