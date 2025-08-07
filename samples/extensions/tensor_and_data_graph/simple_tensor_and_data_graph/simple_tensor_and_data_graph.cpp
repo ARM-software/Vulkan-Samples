@@ -205,9 +205,11 @@ void SimpleTensorAndDataGraph::prepare_data_graph_pipeline()
 	        // Binding 1 is the output tensor
 	        {1, &output_tensor->get_description()}};
 
+	VkShaderModule shader_module = vkb::load_shader("tensor_and_data_graph/simple_tensor_and_data_graph/spirv/pooling.spvasm.spv", get_device().get_handle(), VK_SHADER_STAGE_ALL);
+
 	data_graph_pipeline = std::make_unique<DataGraphPipeline>(get_device(),
 	                                                 data_graph_pipeline_layout->get_handle(),
-	                                                 "tensor_and_data_graph/simple_tensor_and_data_graph/spirv/pooling.spvasm.spv",
+	                                                 shader_module,
 	                                                 "main",
 	                                                 tensor_descriptions);
 

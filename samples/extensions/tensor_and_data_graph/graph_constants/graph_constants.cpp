@@ -331,9 +331,11 @@ void GraphConstants::prepare_data_graph_pipeline()
 	data_graph_pipeline_constants.push_back(&weights_constant_tensor->pipeline_constant);
 	data_graph_pipeline_constants.push_back(&bias_constant_tensor->pipeline_constant);
 
+	VkShaderModule shader_module = vkb::load_shader("tensor_and_data_graph/spirv/conv2d.spvasm.spv", get_device().get_handle(), VK_SHADER_STAGE_ALL);
+
 	data_graph_pipeline = std::make_unique<DataGraphPipeline>(get_device(),
 	                                                 data_graph_pipeline_layout->get_handle(),
-	                                                 "tensor_and_data_graph/spirv/conv2d.spvasm.spv",
+	                                                 shader_module,
 	                                                 "main",
 	                                                 tensor_descriptions,
 	                                                 data_graph_pipeline_constants);

@@ -200,7 +200,7 @@ class ExternallyAllocatedTensor : public vkb::core::VulkanResourceC<VkTensorARM>
 };
 
 /*
- * @brief Helper class to create and manage the lifetime of a VkTensorARM resource. Analagous to vkb::ImageView/BufferView.
+ * @brief Helper class to create and manage the lifetime of a VkTensorARM resource. Analogous to vkb::ImageView/BufferView.
  */
 class TensorView : public vkb::core::VulkanResourceC<VkTensorViewARM>
 {
@@ -259,7 +259,7 @@ class DataGraphPipeline : public vkb::core::VulkanResourceC<VkPipeline>
 	 */
 	DataGraphPipeline(vkb::core::DeviceC                                                &device,
 	              VkPipelineLayout                                                       layout,
-	              const std::string                                                     &shader_spv_binary_path,
+	              VkShaderModule                                                         shader_module,
 	              const char                                                            *entry_point,
 	              std::map<uint32_t, std::map<uint32_t, const VkTensorDescriptionARM *>> tensor_descriptions,
 	              std::vector<VkDataGraphPipelineConstantARM *>                          data_graph_pipeline_constants = std::vector<VkDataGraphPipelineConstantARM *>());

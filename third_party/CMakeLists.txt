@@ -391,3 +391,13 @@ if (VKB_PROFILING)
     add_compile_definitions(TRACY_NO_INVARIANT_CHECK=1)
     set_property(TARGET TracyClient PROPERTY FOLDER "ThirdParty")
 endif()
+
+# mlsdk-for-vulkan-vgf-lib
+set(FLATBUFFERS_PATH "${CMAKE_SOURCE_DIR}/third_party/flatbuffers")
+set(ML_SDK_VGF_LIB_BUILD_TOOLS OFF)
+add_subdirectory(ai-ml-sdk-vgf-library)
+
+# Currently this hack is required, as ai-ml-sdk-vgf-library defines DEBUG in the logging.hpp which clashes.
+target_compile_options(vgf PRIVATE /UDEBUG)
+
+set_target_properties(vgf PROPERTIES FOLDER "ThirdParty" POSITION_INDEPENDENT_CODE ON)

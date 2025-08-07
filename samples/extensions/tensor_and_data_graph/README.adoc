@@ -34,6 +34,7 @@ The samples in this folder are:
 * xref:graph_constants/README.adoc[Graph constants]
 * xref:compute_shaders_with_tensors/README.adoc[Compute shaders with tensors]
 * xref:tensor_image_aliasing/README.adoc[Tensor image aliasing]
+* xref:postprocessing_with_vgf/README.adoc[Postprocessing with VGF]
 
 == Setup
 

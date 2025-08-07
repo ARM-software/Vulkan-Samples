@@ -493,25 +493,22 @@ const VkDescriptorSetLayout &DataGraphPipelineLayout::get_descriptor_set_layout(
 
 DataGraphPipeline::DataGraphPipeline(vkb::core::DeviceC                                                    &device,
                                      VkPipelineLayout                                                       layout,
-                                     const std::string                                                     &shader_spv_binary_path,
+                                     VkShaderModule                                                         shader_module,
                                      const char                                                            *entry_point,
                                      std::map<uint32_t, std::map<uint32_t, const VkTensorDescriptionARM *>> tensor_descriptions,
                                      std::vector<VkDataGraphPipelineConstantARM *>                          data_graph_pipeline_constants) :
-    vkb::core::VulkanResourceC<VkPipeline>(VK_NULL_HANDLE, &device)
+    vkb::core::VulkanResourceC<VkPipeline>(VK_NULL_HANDLE, &device), shader_module(shader_module)
 {
-	// Assemble shader into SPIR-V binary
-	shader_module = vkb::load_shader(shader_spv_binary_path, device.get_handle(), VK_SHADER_STAGE_ALL);        // Data graph pipelines don't have shader stages per-se, so VK_SHADER_STAGE_ALL is used.
-
 	// Create array of data graph pipeline resource infos (one for each input/output tensor)
 	std::vector<VkDataGraphPipelineResourceInfoARM> resource_infos;
 	for (const auto &tensor_descriptions_set : tensor_descriptions)
 	{
-		uint32_t                                          set_idx                      = tensor_descriptions_set.first;
-		const std::map<uint32_t, const VkTensorDescriptionARM*> tensor_descriptions_this_set = tensor_descriptions_set.second;
+		uint32_t                                                 set_idx                      = tensor_descriptions_set.first;
+		const std::map<uint32_t, const VkTensorDescriptionARM *> tensor_descriptions_this_set = tensor_descriptions_set.second;
 
 		for (const auto &tensor_description_binding : tensor_descriptions_this_set)
 		{
-			const VkTensorDescriptionARM* tensor_description = tensor_description_binding.second;
+			const VkTensorDescriptionARM *tensor_description = tensor_description_binding.second;
 
 			VkDataGraphPipelineResourceInfoARM resource_info = {VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_RESOURCE_INFO_ARM};
 			resource_info.pNext                              = tensor_description;
