@@ -321,3 +321,6 @@ Demonstrate how to build data graph pipelines and execute neural networks:
 
 * xref:./{extension_samplespath}tensor_and_data_graph/tensor_image_aliasing/README.adoc[tensor_image_aliasing]
 - Explains how to implement zero-copy data exchange between tensors and images through aliasing.
+
+* xref:./{extension_samplespath}tensor_and_data_graph/postprocessing_with_vgf/README.adoc[postprocessing_with_vgf]
+- Explains how to load and run a VGF file defining a neural network model. A VGF file contains information regarding input, output and constant tensors along with the SPIR-V code which defines the model, which can then be used to run a data graph pipeline.
