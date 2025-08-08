@@ -315,3 +315,6 @@ Demonstrate how to build data graph pipelines and execute neural networks:
 
 * xref:./{extension_samplespath}tensor_and_data_graph/graph_constants/README.adoc[graph_constants]
 - Explains how graph constants are used in a simple convolutional neural network as weights and biases.
+
+* xref:./{extension_samplespath}tensor_and_data_graph/compute_shaders_with_tensors/README.adoc[compute_shaders_with_tensors]
+- Explains how compute shaders can be used to write input tensors and read output tensors from a simple convolutional neural network.
